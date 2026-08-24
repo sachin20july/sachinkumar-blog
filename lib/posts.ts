@@ -12,10 +12,6 @@ export type Post = {
   tags: string[];
 };
 
-export type PostWithContent = Post & {
-  content: string;
-};
-
 export function getAllPosts(): Post[] {
   const files = fs.readdirSync(postsDirectory);
 
@@ -43,27 +39,4 @@ export function getAllPosts(): Post[] {
       new Date(b.date).getTime() -
       new Date(a.date).getTime()
   );
-}
-
-export function getPostBySlug(
-  slug: string
-): PostWithContent | null {
-  const filePath = path.join(postsDirectory, `${slug}.mdx`);
-
-  if (!fs.existsSync(filePath)) {
-    return null;
-  }
-
-  const fileContent = fs.readFileSync(filePath, "utf8");
-
-  const { data, content } = matter(fileContent);
-
-  return {
-    slug,
-    title: data.title,
-    description: data.description,
-    date: data.date,
-    tags: data.tags ?? [],
-    content,
-  };
 }
