@@ -1,0 +1,80 @@
+---
+title: "Understanding the Next.js App Router"
+description: "A beginner-friendly introduction to the Next.js App Router."
+date: "2026-08-25"
+tags:
+  - Next.js
+  - React
+  - Web Development
+---
+
+The **App Router** is the modern routing system provided by Next.js.
+
+It allows us to build applications using folders and files.
+
+## Creating a Route
+
+A basic route looks like this:
+
+```text
+app/
+└── about/
+    └── page.tsx
+```
+
+This creates:
+
+```text
+/about
+```
+
+## Dynamic Routes
+
+For our blog we use:
+
+```text
+app/posts/[slug]/page.tsx
+```
+
+The `[slug]` part represents a dynamic URL value.
+
+For example:
+
+```text
+/posts/my-first-post
+```
+
+The value of `slug` is:
+
+```text
+my-first-post
+```
+
+## Example
+
+Here is a simple Next.js component:
+
+```tsx
+export default function HomePage() {
+  return (
+    <main>
+      <h1>Hello Next.js</h1>
+      <p>Welcome to my application.</p>
+    </main>
+  );
+}
+```
+
+## Important Points
+
+- Next.js uses file-system based routing.
+- `page.tsx` represents a page.
+- `[slug]` represents a dynamic route.
+- `layout.tsx` provides shared UI.
+- Server Components are the default in the App Router.
+
+> Understanding the routing structure makes Next.js much easier to work with.
+
+## Conclusion
+
+The App Router provides a structured way to build modern React applications with Next.js.
