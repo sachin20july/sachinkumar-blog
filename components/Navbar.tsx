@@ -206,7 +206,7 @@ export default function Navbar() {
           </form>
 
           <a
-            href="https://github.com"
+            href="https://github.com/sachin20july"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
